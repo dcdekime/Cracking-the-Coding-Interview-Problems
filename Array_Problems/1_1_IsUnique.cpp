@@ -28,7 +28,7 @@ bool isUnique(std::string& inputString)
     }
 
     for (char& currChar : inputString)
-    {
+    { 
         int ind = (int) currChar;
         if (!characterChecker[ind])
         {
@@ -50,7 +50,7 @@ int main()
     std::string testString1 = "abcdefghijkl";
     std::string testString2 = "potato";
 
-    bool output = isUnique(testString1);
+    bool output = isUnique(testString2);
     std::string tfVal = output ? "true" : "false";
 
     std::cout << "IsUnique returned " << tfVal << std::endl;
