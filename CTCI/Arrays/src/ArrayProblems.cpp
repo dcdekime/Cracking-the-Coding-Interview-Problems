@@ -85,4 +85,67 @@ bool ArrayProblems::checkPermutation(const std::string& str1, const std::string&
     return true;
 }
 
+void ArrayProblems::URLify(std::string& charArr, int trueLength)
+{
+    int spaceCount = 0;
+    for (int i=0; i < trueLength; i++)
+    {
+        if (charArr[i] == ' ')
+        {
+            spaceCount++;
+        }
+    }
+
+    int extraSpaces = spaceCount * 2;
+    int rightPtr = trueLength + extraSpaces - 1;
+
+    for (int leftPtr = trueLength-1; leftPtr >= 0; leftPtr--)
+    {
+        if (charArr[leftPtr] == ' ')
+        {
+            charArr[rightPtr] = '0';
+            charArr[rightPtr-1] = '2';
+            charArr[rightPtr-2] = '%';
+            rightPtr -= 3;
+        }
+        else
+        {
+            charArr[rightPtr] = charArr[leftPtr];
+            rightPtr--;
+        }
+    }
+}
+
+bool ArrayProblems::palindromePermutation(const std::string& inputStr)
+{
+  int strLen = 0;
+  std::unordered_map<char, int> charCountMap;
+
+  for (auto c : inputStr)
+  {
+    if (std::isalnum(c))
+    {
+      charCountMap[std::tolower(c)]++;
+      strLen++;
+    }
+  }
+
+  int oddCount = 0;
+  for (auto item : charCountMap)
+  {
+    if (item.second % 2 == 1)
+    {
+      oddCount++;
+    }
+  }
+
+  bool isOdd = strLen % 2 == 1 ? true : false;
+  if ((isOdd && oddCount == 1) || (!isOdd && oddCount == 0))
+  {
+    return true;
+  }
+
+  return false;
+}
+
 

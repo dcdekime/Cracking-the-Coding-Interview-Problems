@@ -17,8 +17,8 @@ public:
         
     bool isUnique(const std::string& inputString); // ctci problem 1_1
     bool checkPermutation(const std::string& str1, const std::string& str2); // ctci problem 1_2
-    std::string URLify(std::string& input); // ctci problem 1_3
-    bool palindromePermutation(std::string& input); // ctci problem 1_4
+    void URLify(std::string& charArr, int trueLength); // ctci problem 1_3
+    bool palindromePermutation(const std::string& inputStr); // ctci problem 1_4
     bool oneAway(std::string& str1, std::string& str2); // ctci problem 1_5
     std::string stringCompression(std::string& input); // ctci problem 1_6
     void rotateMatrix(std::vector<std::vector<int>>& originalMatrix); // ctci problem 1_7

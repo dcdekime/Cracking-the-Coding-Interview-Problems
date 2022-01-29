@@ -2,7 +2,7 @@
 #include "ArrayProblems.h"
 
 
-void run_isUnique_tests(ArrayProblems& arrayObj)
+void run_isUnique_tests(const ArrayProblems& arrayObj)
 {
     
     // test case 1
@@ -19,7 +19,7 @@ void run_isUnique_tests(ArrayProblems& arrayObj)
     std::cout << std::endl;
 }
 
-void run_checkPermutation_tests(ArrayProblems& arrayObj)
+void run_checkPermutation_tests(const ArrayProblems& arrayObj)
 {
     // test case 1
     std::string testString1 = "potato";
@@ -39,15 +39,28 @@ void run_checkPermutation_tests(ArrayProblems& arrayObj)
     
 }
 
-void run_URLify_tests(ArrayProblems& arrayObj)
+void run_URLify_tests(const ArrayProblems& arrayObj)
 {
-    
+  std::string inputStr = "Mr John Smith    ";
+  int trueLength = 13;
+
+  std::cout << "Original String: " << inputStr << std::endl;
+  std::cout << std::endl;
+
+  arrayObj.URLify(inputStr, trueLength);
+  std::cout << "URLified String: " << inputStr << std::endl;
+}
+
+void run_PalindromePermutation_tests(const ArrayProblems& arrayObj)
+{
+  std::string inputStr = "Tact Coa";
+  std::cout << "PalindromePermutation returned: " << arrayObj.palindromePermutation(inputStr) ? "True" : "False" << std::endl;
 }
 
 
 int main()
 {
-    ArrayProblems arrayProblemsObj;
+    const ArrayProblems arrayProblemsObj;
     
     // run array tests
     run_isUnique_tests(arrayProblemsObj);
@@ -56,6 +69,7 @@ int main()
     
     run_URLify_tests(arrayProblemsObj);
     
-
+    run_PalindromePermutation_tests(arrayProblemsObj);
+    
     return 0;
 }
