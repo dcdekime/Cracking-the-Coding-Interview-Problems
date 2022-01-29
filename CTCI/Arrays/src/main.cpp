@@ -75,6 +75,16 @@ void run_OneAway_tests(const ArrayProblems& arrayObj)
     std::cout << "For Inputs: [" << testStr3 << ", " << testStr4 << "] OneAway Returned -> " << res2 << std::endl;
 }
 
+void run_StringCompression_tests(const ArrayProblems& arrayObj)
+{
+  // aabcccccaaa -> a2b1c5a3
+  std::string testInput1 = "aabcccccaaa";
+  std::string testInput2 = "bbcqqqdddddzzzxxx";
+  std::string res = stringCompression(testInput2);
+
+  std::cout << "String Compression Returned: " << res << std::endl;
+}
+
 
 int main()
 {
@@ -90,6 +100,8 @@ int main()
     run_PalindromePermutation_tests(arrayProblemsObj);
 
     run_OneAway_tests(arrayProblemsObj);
+
+    run_StringCompression_tests(arrayProblemsObj);
 
     return 0;
 }

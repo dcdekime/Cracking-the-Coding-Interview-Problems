@@ -160,7 +160,7 @@ bool ArrayProblems::oneAway(const std::string& str1, const std::string& str2)
     return false;
   
   int diffCount, shortPtr, longPtr = 0;
-  
+
   bool lengthsEqual = str1.length() == str2.length();
   std::string shortStr = str1.length() < str2.length() ? str1 : str2;
   std::string longStr = str1.length() < str2.length() ? str2 : str1;
@@ -185,6 +185,29 @@ bool ArrayProblems::oneAway(const std::string& str1, const std::string& str2)
   }
   
   return true;
+}
+
+
+
+
+std::string ArrayProblems::stringCompression(const std::string& inputStr)
+{
+  int charCount, leftPtr = 0;
+  std::string compressedString = "";
+
+  for (int rightPtr = 0; rightPtr <= inputStr.length(); rightPtr++)
+  {
+    if (rightPtr == inputStr.length() || inputStr[rightPtr] != inputStr[leftPtr])
+    {
+      charCount = rightPtr - leftPtr;
+      compressedString += inputStr[leftPtr];
+      compressedString += std::to_string(charCount);
+      leftPtr = rightPtr;
+      charCount = 0;
+    }
+  }
+
+  return compressedString.length() < inputStr.length() ? compressedString : inputStr;
 }
 
 
