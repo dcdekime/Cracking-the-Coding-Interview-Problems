@@ -116,6 +116,9 @@ void ArrayProblems::URLify(std::string& charArr, int trueLength)
     }
 }
 
+
+
+
 bool ArrayProblems::palindromePermutation(const std::string& inputStr)
 {
   int strLen = 0;
@@ -146,6 +149,42 @@ bool ArrayProblems::palindromePermutation(const std::string& inputStr)
   }
 
   return false;
+}
+
+
+
+
+bool ArrayProblems::oneAway(const std::string& str1, const std::string& str2)
+{
+  if (abs(int(str1.length()) - int(str2.length())) > 1)
+    return false;
+  
+  int diffCount, shortPtr, longPtr = 0;
+  
+  bool lengthsEqual = str1.length() == str2.length();
+  std::string shortStr = str1.length() < str2.length() ? str1 : str2;
+  std::string longStr = str1.length() < str2.length() ? str2 : str1;
+
+  while (shortPtr < shortStr.length() && longPtr < longStr.length())
+  {
+    if (diffCount > 1)
+      return false;
+    
+    if (shortStr[shortPtr] != longStr[longPtr])
+    {
+      diffCount++;
+      if (lengthsEqual)
+        shortPtr++;
+    }
+    else
+    {
+      shortPtr++;
+    }
+
+    longPtr++;
+  }
+  
+  return true;
 }
 
 

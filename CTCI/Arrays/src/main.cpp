@@ -57,6 +57,24 @@ void run_PalindromePermutation_tests(const ArrayProblems& arrayObj)
   std::cout << "PalindromePermutation returned: " << arrayObj.palindromePermutation(inputStr) ? "True" : "False" << std::endl;
 }
 
+void run_OneAway_tests(const ArrayProblems& arrayObj)
+{
+  // test case 1
+  std::string testStr1 = "pale";
+  std::string testStr2 = "ple";
+  std::string res1 = oneAway(testStr1, testStr2) ? "True" : "False";
+
+  std::cout << "For Inputs: [" << testStr1 << ", " << testStr2 << "] OneAway Returned -> " << res1 << std::endl;
+  std::cout << std::endl;
+
+  // test case 2
+  std::string testStr3 = "pale";
+  std::string testStr4 = "bake";
+  std::string res2 = oneAway(testStr3, testStr4) ? "True" : "False";
+
+    std::cout << "For Inputs: [" << testStr3 << ", " << testStr4 << "] OneAway Returned -> " << res2 << std::endl;
+}
+
 
 int main()
 {
@@ -70,6 +88,8 @@ int main()
     run_URLify_tests(arrayProblemsObj);
     
     run_PalindromePermutation_tests(arrayProblemsObj);
-    
+
+    run_OneAway_tests(arrayProblemsObj);
+
     return 0;
 }
