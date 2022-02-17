@@ -2,7 +2,7 @@
 #include "ArrayProblems.h"
 
 
-void run_isUnique_tests(const ArrayProblems& arrayObj)
+void run_isUnique_tests(ArrayProblems& arrayObj)
 {
     
     // test case 1
@@ -19,7 +19,7 @@ void run_isUnique_tests(const ArrayProblems& arrayObj)
     std::cout << std::endl;
 }
 
-void run_checkPermutation_tests(const ArrayProblems& arrayObj)
+void run_checkPermutation_tests(ArrayProblems& arrayObj)
 {
     // test case 1
     std::string testString1 = "potato";
@@ -39,7 +39,7 @@ void run_checkPermutation_tests(const ArrayProblems& arrayObj)
     
 }
 
-void run_URLify_tests(const ArrayProblems& arrayObj)
+void run_URLify_tests(ArrayProblems& arrayObj)
 {
   std::string inputStr = "Mr John Smith    ";
   int trueLength = 13;
@@ -51,18 +51,18 @@ void run_URLify_tests(const ArrayProblems& arrayObj)
   std::cout << "URLified String: " << inputStr << std::endl;
 }
 
-void run_PalindromePermutation_tests(const ArrayProblems& arrayObj)
+void run_PalindromePermutation_tests(ArrayProblems& arrayObj)
 {
   std::string inputStr = "Tact Coa";
-  std::cout << "PalindromePermutation returned: " << arrayObj.palindromePermutation(inputStr) ? "True" : "False" << std::endl;
+  std::cout << "PalindromePermutation returned: " << (arrayObj.palindromePermutation(inputStr) ? "True" : "False") << std::endl;
 }
 
-void run_OneAway_tests(const ArrayProblems& arrayObj)
+void run_OneAway_tests(ArrayProblems& arrayObj)
 {
   // test case 1
   std::string testStr1 = "pale";
   std::string testStr2 = "ple";
-  std::string res1 = oneAway(testStr1, testStr2) ? "True" : "False";
+  std::string res1 = arrayObj.oneAway(testStr1, testStr2) ? "True" : "False";
 
   std::cout << "For Inputs: [" << testStr1 << ", " << testStr2 << "] OneAway Returned -> " << res1 << std::endl;
   std::cout << std::endl;
@@ -70,17 +70,17 @@ void run_OneAway_tests(const ArrayProblems& arrayObj)
   // test case 2
   std::string testStr3 = "pale";
   std::string testStr4 = "bake";
-  std::string res2 = oneAway(testStr3, testStr4) ? "True" : "False";
+  std::string res2 = arrayObj.oneAway(testStr3, testStr4) ? "True" : "False";
 
     std::cout << "For Inputs: [" << testStr3 << ", " << testStr4 << "] OneAway Returned -> " << res2 << std::endl;
 }
 
-void run_StringCompression_tests(const ArrayProblems& arrayObj)
+void run_StringCompression_tests(ArrayProblems& arrayObj)
 {
   // aabcccccaaa -> a2b1c5a3
   std::string testInput1 = "aabcccccaaa";
   std::string testInput2 = "bbcqqqdddddzzzxxx";
-  std::string res = stringCompression(testInput2);
+  std::string res = arrayObj.stringCompression(testInput2);
 
   std::cout << "String Compression Returned: " << res << std::endl;
 }
@@ -88,7 +88,7 @@ void run_StringCompression_tests(const ArrayProblems& arrayObj)
 
 int main()
 {
-    const ArrayProblems arrayProblemsObj;
+    ArrayProblems arrayProblemsObj;
     
     // run array tests
     run_isUnique_tests(arrayProblemsObj);

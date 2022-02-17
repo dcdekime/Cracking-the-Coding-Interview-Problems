@@ -46,7 +46,7 @@ bool ArrayProblems::isUnique(const std::string& inputString)
 
 /*  Problem Source: Cracking the Coding Interview - 1.2 Check Permutation
 
-    Problem Description: Given two strintgs, write a method to decide if one is a permutation of the other
+    Problem Description: Given two strings, write a method to decide if one is a permutation of the other
 
 
     Approach:
@@ -85,6 +85,21 @@ bool ArrayProblems::checkPermutation(const std::string& str1, const std::string&
     return true;
 }
 
+
+/*  Problem Source: Cracking the Coding Interview - 1.3 URLify
+
+    Problem Description: Write a method to replace all spaces in a string with '%20'. 
+    You may assume that the string has sufficient space at the end to hold the additional 
+    characters, and that you are given the "true" length of the string"
+
+    EXAMPLE
+    Input: ("Mr John Smith      ", 13)
+    Output: "Mr%20John%20Smith"
+
+    Approach:
+        1) 
+*/
+
 void ArrayProblems::URLify(std::string& charArr, int trueLength)
 {
     int spaceCount = 0;
@@ -117,7 +132,20 @@ void ArrayProblems::URLify(std::string& charArr, int trueLength)
 }
 
 
+/*  Problem Source: Cracking the Coding Interview - 1.4 Palindrome Permutation
 
+    Problem Description: Given a string, write a function to check if it is a permutation of a palindrome. 
+                         A palindrome is a word or phrase that is the same forwards and backwards.
+                         A permutation is a rearrangement of letters. The palindrome does not need to be 
+                         limited to just dictionary words.
+
+    EXAMPLE
+    Input: Tact Coa
+    Output: True (permutations: "taco cat", "atco cta", etc.)
+
+    Approach:
+        1)
+*/
 
 bool ArrayProblems::palindromePermutation(const std::string& inputStr)
 {
@@ -152,14 +180,25 @@ bool ArrayProblems::palindromePermutation(const std::string& inputStr)
 }
 
 
+/*  Problem Source: Cracking the Coding Interview - 1.5 One Away
 
+    Problem Description: There are three types of edits that can be performed on strings: 
+                         
+
+    EXAMPLE
+    Input: Tact Coa
+    Output: True (permutations: "taco cat", "atco cta", etc.)
+
+    Approach:
+        1)
+*/
 
 bool ArrayProblems::oneAway(const std::string& str1, const std::string& str2)
 {
   if (abs(int(str1.length()) - int(str2.length())) > 1)
     return false;
   
-  int diffCount, shortPtr, longPtr = 0;
+  int diffCount = 0, shortPtr = 0, longPtr = 0;
 
   bool lengthsEqual = str1.length() == str2.length();
   std::string shortStr = str1.length() < str2.length() ? str1 : str2;
@@ -208,6 +247,56 @@ std::string ArrayProblems::stringCompression(const std::string& inputStr)
   }
 
   return compressedString.length() < inputStr.length() ? compressedString : inputStr;
+}
+
+
+
+void ArrayProblems::rotateMatrix(std::vector<std::vector<int>>& matrix) 
+{
+    // edge case: not NxN or empty
+    if (matrix.size() != matrix[0].size() || !matrix.size())
+    {
+        return;
+    }
+    
+    // utilize two-pointer approach
+    int n = matrix.size();
+    for (int currentLayer=0; currentLayer < n/2; currentLayer++)
+    {
+        // set pointers -> rows meet in the middle thus n/2
+        int first = currentLayer;
+        int last = n - 1 - currentLayer;
+        
+        for (int i=first; i < last; i++)
+        {
+            // offset val
+            int offset = i - first;
+            
+            // save top
+            // keep top row fixed, move up cols
+            int top = matrix[first][i];
+            
+            // leftCol -> topRow 
+            // keep top row fixed, move up cols
+            // keep left col fixed, move up rows
+            matrix[first][i] = matrix[last-offset][first]; 
+            
+            // botRow -> leftCol
+            // keep left col fixed, move up rows
+            // keep bottom row fixed, move down cols
+            matrix[last-offset][first] = matrix[last][last-offset];
+            
+            // rightCol -> botRow
+            // keep bottom row fixed, move up cols
+            // keep rightCol fixed, move down rows
+            matrix[last][last-offset] = matrix[i][last];
+            
+            // topRow -> rightCol
+            // keep right col fixed, down rows
+            // keep top row fixed, move up cols
+            matrix[i][last] = top;
+        }
+    }
 }
 
 
