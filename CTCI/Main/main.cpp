@@ -1,6 +1,6 @@
 #include <iostream>
 #include "ArrayProblems.h"
-
+#include "Custom_Array.h"
 
 void run_isUnique_tests(ArrayProblems& arrayObj)
 {

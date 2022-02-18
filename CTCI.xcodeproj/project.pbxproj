@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD45876F278FB6A50014A20E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD45876E278FB6A50014A20E /* main.cpp */; };
 		AD45877127938ACF0014A20E /* ArrayProblems.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD45877027938ACF0014A20E /* ArrayProblems.cpp */; };
+		AD4587762797CCB20014A20E /* Custom_Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD4587742797CCB20014A20E /* Custom_Array.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		AD45876D278FB5C10014A20E /* ArrayProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayProblems.h; sourceTree = "<group>"; };
 		AD45876E278FB6A50014A20E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AD45877027938ACF0014A20E /* ArrayProblems.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayProblems.cpp; sourceTree = "<group>"; };
+		AD4587742797CCB20014A20E /* Custom_Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Custom_Array.cpp; sourceTree = "<group>"; };
+		ADDB959027C0197B00A32C89 /* Custom_Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custom_Array.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				AD4587722793911B0014A20E /* Arrays */,
+				ADDB959127C0296100A32C89 /* Main */,
 			);
 			path = CTCI;
 			sourceTree = "<group>";
@@ -68,6 +72,7 @@
 		AD458768278FB4640014A20E /* include */ = {
 			isa = PBXGroup;
 			children = (
+				ADDB959027C0197B00A32C89 /* Custom_Array.h */,
 				AD45876D278FB5C10014A20E /* ArrayProblems.h */,
 			);
 			path = include;
@@ -76,8 +81,8 @@
 		AD458769278FB47C0014A20E /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AD4587742797CCB20014A20E /* Custom_Array.cpp */,
 				AD45877027938ACF0014A20E /* ArrayProblems.cpp */,
-				AD45876E278FB6A50014A20E /* main.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -89,6 +94,14 @@
 				AD458769278FB47C0014A20E /* src */,
 			);
 			path = Arrays;
+			sourceTree = "<group>";
+		};
+		ADDB959127C0296100A32C89 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AD45876E278FB6A50014A20E /* main.cpp */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD4587762797CCB20014A20E /* Custom_Array.cpp in Sources */,
 				AD45876F278FB6A50014A20E /* main.cpp in Sources */,
 				AD45877127938ACF0014A20E /* ArrayProblems.cpp in Sources */,
 			);
