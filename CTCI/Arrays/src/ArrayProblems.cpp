@@ -493,7 +493,7 @@ void ArrayProblems::zeroMatrix(std::vector<std::vector<int>>& matrix)
            then if s2 is a rotation of s1 -> s1s1 will contain s2 ["erbottlewat"] is in s1s1
  
  
-    Time Complexity:    O(N) -> isSubstring depends on length of str1 and str2
+    Time Complexity:    O(N) -> depends on length of str1 and str2
     Space Complexity:   O(1)
 */
 
