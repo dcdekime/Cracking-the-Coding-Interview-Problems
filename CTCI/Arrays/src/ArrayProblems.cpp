@@ -1,8 +1,11 @@
 #include "ArrayProblems.h"
 
-ArrayProblems::ArrayProblems()
+ArrayProblems::ArrayProblems() {};
+
+ArrayProblems& ArrayProblems::getInstance()
 {
-    
+    static ArrayProblems instance;
+    return instance;
 }
 
 /*  Problem Source: Cracking the Coding Interview - 1.1 Is Unique
