@@ -1,6 +1,9 @@
 #ifndef LinkedList_Problems_h
 #define LinkedList_Problems_h
 
+#include <unordered_set>
+#include <unordered_map>
+
 struct Node
 {
     // constructor
