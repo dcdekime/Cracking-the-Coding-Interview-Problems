@@ -9,25 +9,64 @@ LinkedListProblems::LinkedListProblems() {};
                                     is not allowed?
 
     Approach:
-        1)
+        1)  With buffer (unordered_set):
+                -create set to keep track of observed nodes
+                -create previous node and set equal to null
+                -start with given current root and iterate through each node w/ while loop
+                    if node value is in set already -> set previous.next to current.next
+                    otherwise -> set previous to current node, update current node to next node
+                
+             Time Complexity:    O(N)
+             Space Complexity:   O(N)
  
-     
-     Time Complexity:    O()
-     Space Complexity:   O()
+        2)  Without buffer:
+                -
 */
 
-void LinkedListProblems::removeDups(Node *root)
+// 1 -> 2 -> 3 -> 2 -> 1 -> 4
+// ^    ^    ^    ^    ^    ^
+// pc   pc   pc   c    c    pc
+
+// Solution with buffer
+void LinkedListProblems::removeDups(Node* root)
 {
+    std::unordered_set<int> nodeSet;
+    Node* prev = nullptr;
+    Node* currNode = root;
     
+    while (currNode)
+    {
+        if (nodeSet.find(root->data) != nodeSet.end() && nodeSet.count(root->data) > 0)
+        {
+            prev->next = currNode->next;
+        }
+        else
+        {
+            prev = currNode;
+            nodeSet.insert(currNode->data);
+        }
+        
+        currNode = currNode->next;
+    }
 }
+
+// Solution without buffer
+//void LinkedListProblems::removeDups(Node* root)
+//{
+//
+//}
 
 
 /*  Problem Source: Cracking the Coding Interview - 2.2 Return Kth to Last
 
     Problem Description: Implement an algorithm to find the kth to last element of a singly linked list
 
-    Approach:
-        1)
+    Approach 1:
+        1) keep count of how many nodes in the list while iterating forward
+        2) once end is reached, iterate through n-K and return Kth node
+ 
+    Approach 2:
+        1) 
  
      
      Time Complexity:    O()

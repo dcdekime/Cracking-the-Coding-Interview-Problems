@@ -14,10 +14,8 @@ struct Parameters
 class ArrayProblems
 {
 public:
-    ArrayProblems();
-    
     static ArrayProblems& getInstance();
-        
+
     bool isUnique(const std::string& inputString);                              // ctci problem 1.1
     bool checkPermutation(const std::string& str1, const std::string& str2);    // ctci problem 1.2
     void URLify(std::string& charArr, int trueLength);                          // ctci problem 1.3
@@ -27,6 +25,10 @@ public:
     void rotateMatrix(std::vector<std::vector<int>>& matrix);                   // ctci problem 1.7
     void zeroMatrix(std::vector<std::vector<int>>& matrix);                     // ctci problem 1.8
     bool stringRotation(std::string& str1, std::string& str2);                  // ctci problem 1.9
+    
+private:
+    ArrayProblems();
+    
 };
 
 #endif /* ArrayProblems_h */

@@ -7,12 +7,13 @@
 class ArrayTests
 {
 public:
-    ArrayTests();
     static ArrayTests& getInstance();
     void runUnitTests();
 
 private:
     // member functions
+    ArrayTests();
+    
     void run_isUnique_tests();
     void run_checkPermutation_tests();
     void run_URLify_tests();

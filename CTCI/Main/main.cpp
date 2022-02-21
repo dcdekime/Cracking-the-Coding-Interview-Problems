@@ -3,8 +3,6 @@
 #include "Custom_Array.h"
 
 
-
-
 int main()
 {
     // get test objects
