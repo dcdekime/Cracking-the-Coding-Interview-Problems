@@ -8,19 +8,22 @@ LinkedListProblems::LinkedListProblems() {};
                          FOLLOW UP: How would you solve this problem if a temporary buffer
                                     is not allowed?
 
-    Approach:
-        1)  With buffer (unordered_set):
-                -create set to keep track of observed nodes
-                -create previous node and set equal to null
-                -start with given current root and iterate through each node w/ while loop
-                    if node value is in set already -> set previous.next to current.next
-                    otherwise -> set previous to current node, update current node to next node
+    Approach 1: With buffer (unordered_set)
+        1)  create set to keep track of observed nodes
+        
+        2)  create previous node and set equal to null
+        
+        3)  start with given current root and iterate through each node w/ while loop
+        
+        4)  if node value is in set already -> set previous.next to current.next
+
+        5)  otherwise -> set previous to current node, update current node to next node
                 
              Time Complexity:    O(N)
              Space Complexity:   O(N)
  
-        2)  Without buffer:
-                -
+    Approach 2: Without buffer
+                
 */
 
 // 1 -> 2 -> 3 -> 2 -> 1 -> 4
@@ -59,23 +62,43 @@ void LinkedListProblems::removeDups(Node* root)
 
 /*  Problem Source: Cracking the Coding Interview - 2.2 Return Kth to Last
 
-    Problem Description: Implement an algorithm to find the kth to last element of a singly linked list
+    Problem Description: Implement an algorithm to find the kth to last element of a 
+                         singly linked list
 
-    Approach 1:
-        1) keep count of how many nodes in the list while iterating forward
-        2) once end is reached, iterate through n-K and return Kth node
+    Approach 1: Recursive
+        1)  create a helper function to recursively call headNode.next until null(end) is reached
+
+        2)  use counter as an input and when terminating condition is reached -> 
+            increase counter at each frame as it unwinds
+
+        3)  if counter = K then current node is the Kth from last -> return
+
+        Time Complexity:    O(N)
+        Space Complexity:   O(N)
  
-    Approach 2:
-        1) 
+    Approach 2: Iterative
+        1)  create 2 pointers (p1, p2) starting at head/root
+
+        2)  increase p2 until it is K away from p1
+
+        3)  move p1 and p2 simultaneously until p2 reaches end of list
+
+        4)  if p2 = null, return p1 as it is K nodes from end
  
      
-     Time Complexity:    O()
-     Space Complexity:   O()
+        Time Complexity:    O(N)
+        Space Complexity:   O(1)
 */
 
-Node* LinkedListProblems::returnKthToLast(Node *root)
+// recursive solution
+Node* returnKthToLast(Node* currNode, int K, int count)
 {
-    return nullptr;
+
+}
+
+Node* LinkedListProblems::returnKthToLast(Node* root)
+{
+    return returnKthToLast(root, )   
 }
 
 
@@ -89,12 +112,12 @@ Node* LinkedListProblems::returnKthToLast(Node *root)
         Input: the node c from the linked list a -> b -> c -> d -> e -> f
         Output: nothing is returned, but the new linked list looks like a -> b -> d -> e -> f
 
-    Approach:
+    Approach 1:
         1)
  
      
-     Time Complexity:    O()
-     Space Complexity:   O()
+        Time Complexity:    O()
+        Space Complexity:   O()
 */
 
 void LinkedListProblems::deleteMiddleNode(Node *root)
@@ -188,7 +211,7 @@ bool LinkedListProblems::palindrome(Node *root)
      Space Complexity:   O()
 */
 
-bool LinkedListProblems::intersection(Node *root1, Node *root2)
+bool LinkedListProblems::intersection(Node* root1, Node* root2)
 {
     return true;
 }
@@ -218,9 +241,3 @@ Node* LinkedListProblems::loopDetection(Node *root)
 {
     return nullptr;
 }
-
-
-
-
-
-    
