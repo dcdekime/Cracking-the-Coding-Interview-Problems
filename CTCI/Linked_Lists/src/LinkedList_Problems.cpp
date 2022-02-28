@@ -22,8 +22,7 @@ LinkedListProblems::LinkedListProblems() {};
              Time Complexity:    O(N)
              Space Complexity:   O(N)
  
-    Approach 2: Without buffer
-                
+    Approach 2: Without buffer               
 */
 
 // 1 -> 2 -> 3 -> 2 -> 1 -> 4
@@ -31,7 +30,7 @@ LinkedListProblems::LinkedListProblems() {};
 // pc   pc   pc   c    c    pc
 
 // Solution with buffer
-void LinkedListProblems::removeDups(Node* root)
+void removeDupsBuffer(Node* root)
 {
     std::unordered_set<int> nodeSet;
     Node* prev = nullptr;
@@ -54,10 +53,33 @@ void LinkedListProblems::removeDups(Node* root)
 }
 
 // Solution without buffer
-//void LinkedListProblems::removeDups(Node* root)
-//{
-//
-//}
+void removeDupsNoBuffer(Node* root)
+{
+    Node* currNode = root;
+    while(currNode)
+    {
+        Node* runPtr = currNode;
+        while(runPtr->next)
+        {
+            if (runPtr->next.data == currNode->data)
+            {
+                runPtr->next = runPtr->next.next;
+            }
+
+            runPtr = runPtr->next;
+        }
+
+        currNode = currNode->next;
+    }
+}
+
+
+void LinkedListProblems::removeDups(Node* root)
+{
+    removeDupsBuffer(root);
+    //removeDupsNoBuffer(root);
+}
+
 
 
 /*  Problem Source: Cracking the Coding Interview - 2.2 Return Kth to Last
@@ -91,14 +113,54 @@ void LinkedListProblems::removeDups(Node* root)
 */
 
 // recursive solution
-Node* returnKthToLast(Node* currNode, int K, int count)
+Node* returnKthToLastHelper(Node* currNode, int K, int count)
 {
+    if (!currNode)
+    {
+        return nullptr;
+    }
 
+    Node* currFrameNode = returnKthToLastHelper(currNode->next, K, count);
+    count++;
+    if (count == K)
+    {
+        return currNode;
+    }
+
+    return currFrameNode;
 }
 
-Node* LinkedListProblems::returnKthToLast(Node* root)
+Node* returnKthToLastRecursive(Node* root, int K)
 {
-    return returnKthToLast(root, )   
+    return returnKthToLastHelper(root, K, 0);
+}
+
+// iterative solution
+Node* returnKthToLastIterative(Node* root, int K)
+{
+    Node* p1 = root;
+    Node* p2 = root;
+
+    for (int i=0; i < K; i++)
+    {
+        if (!p2)
+            return nullptr;
+        p2 = p2->next;
+    }
+
+    while (p2)
+    {
+        p1 = p1->next;
+        p2 = p2->next;
+    }
+
+    return p1;
+}
+
+Node* LinkedListProblems::returnKthToLast(Node* root, int K)
+{
+    return returnKthToLastRecursive(root, 3);
+    //return returnKthToLastIterative(root, 3);
 }
 
 
@@ -171,7 +233,7 @@ void LinkedListProblems::partition(Node* root, int X)
      Space Complexity:   O()
 */
 
-Node* LinkedListProblems::sumLists(Node *root1, Node *root2)
+Node* LinkedListProblems::sumLists(Node* root1, Node* root2)
 {
     return nullptr;
 }
