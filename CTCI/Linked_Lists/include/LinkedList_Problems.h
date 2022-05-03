@@ -21,8 +21,8 @@ public:
     
     void removeDups(Node* root);                    // CTCI Problem 2.1
     Node* returnKthToLast(Node* root);              // CTCI Problem 2.2
-    void deleteMiddleNode(Node* root);              // CTCI Problem 2.3
-    void partition(Node* root, int X);              // CTCI Problem 2.4
+    bool deleteMiddleNode(Node* node);              // CTCI Problem 2.3
+    Node* partition(Node* root, int X);              // CTCI Problem 2.4
     Node* sumLists(Node* root1, Node* root2);       // CTCI Problem 2.5
     bool palindrome(Node* root);                    // CTCI Problem 2.6
     bool intersection(Node* root1, Node* root2);    // CTCI Problem 2.7

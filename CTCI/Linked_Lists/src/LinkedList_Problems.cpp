@@ -182,9 +182,16 @@ Node* LinkedListProblems::returnKthToLast(Node* root, int K)
         Space Complexity:   O()
 */
 
-void LinkedListProblems::deleteMiddleNode(Node *root)
+bool LinkedListProblems::deleteMiddleNode(Node *currNode)
 {
-    
+    // if current node is null or current node is end of list
+    if (!currNode || !currNode->next)
+    {
+        return false;
+    }
+
+    currNode = currNode->next;
+    return true;
 }
 
 
@@ -208,9 +215,49 @@ void LinkedListProblems::deleteMiddleNode(Node *root)
      Space Complexity:   O()
 */
 
-void LinkedListProblems::partition(Node* root, int X)
+Node* LinkedListProblems::partition(Node* root, int partitionVal)
 {
+    // create separate lists for nodes less than partition val and greater than partition val
+    Node* lessThanList = nullptr;
+    Node* greaterThanList = nullptr;
+    // store starting node of both lists
+    Node* lessThanListStart = nullptr;
+    Node* greaterThanListStart = nullptr;
+    Node* currNode = root;
+
+    while (currNode)
+    {
+        // grab nodes less than partition val and add to lessThanList
+        if (currNode->data < partitionVal)
+        {
+            if (!lessThanList)
+            {
+                lessThanList = currNode;
+                lessThanListStart = currNode;
+            }
+
+            lessThanList->next = currNode;
+            lessThanList = currNode;
+        }
+        // grab nodes greater/equal to partition val and add to greaterThanList
+        else
+        {
+            if (!greaterThanList)
+            {
+                greaterThanList = currNode;
+                greaterThanListStart = currNode;
+            }
+
+            greaterThanList->next = currNode;
+            greaterThanList = currNode;
+        }
+    }
+
+    // combine lists
+    lessThanList->next = greaterThanListStart;
+    greaterThanList->next = nullptr;
     
+    return lessThanListStart; // return very start of combined list
 }
 
 
